@@ -6,18 +6,18 @@
 #    By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 21:53:56 by angnavar          #+#    #+#              #
-#    Updated: 2024/12/02 11:57:16 by angnavar         ###   ########.fr        #
+#    Updated: 2025/01/28 13:39:47 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = main_program
+NAME = push_swap
 
 SRC_DIR = src
 INCLUDE_DIR = includes
 LIBFT_DIR = includes/libft
 PRINTF_DIR = includes/ft_printf
 
-SRC = $(wildcard $(SRC_DIR)/*.c)
+SRC = $(shell find $(SRC_DIR) -type f -name "*.c")
 OBJ = $(SRC:.c=.o)
 
 LIBFT = $(LIBFT_DIR)/libft.a

@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 14:16:43 by angnavar          #+#    #+#             */
-/*   Updated: 2024/10/24 17:52:59 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:46:35 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "../libft/libft.h"
 
-size_t	ft_strlen(const char *s);
 int		ft_ptrlen(unsigned long ptr);
 int		ft_print_chr(int chr);
 int		ft_print_str(char *str);

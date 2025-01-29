@@ -6,21 +6,11 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:16:53 by angnavar          #+#    #+#             */
-/*   Updated: 2024/10/24 17:53:19 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:46:39 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-size_t	ft_strlen(const char *s)
-{
-	int	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
 
 int	ft_ptrlen(unsigned long ptr)
 {
