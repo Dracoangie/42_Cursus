@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:30:20 by angnavar          #+#    #+#             */
-/*   Updated: 2025/02/02 23:45:49 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:26:15 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ void	put_pixel(t_data *data, int x, int y, int color)
 	}
 }
 
-int	set_color(int iter, int color_table[MAX_ITER])
+int	set_color(int iter, int *color_table, t_data *data)
 {
-	if (iter == MAX_ITER)
+	if (iter == data->max_iter)
 		return (0);
 	return (color_table[iter]);
 }
 
-void	draw_fractal_row(t_data *data, int y, int color_table[MAX_ITER])
+void	draw_fractal_row(t_data *data, int y, int *color_table)
 {
 	int		x;
 	int		iter;
-	float	scaled_x;
-	float	scaled_y;
+	double	scaled_x;
+	double	scaled_y;
 
 	x = 0;
 	scaled_y = (y - HEIGHT / 2.0) * (1.0 / (0.5 * data->zoom * HEIGHT))
@@ -69,15 +69,14 @@ void	draw_fractal_row(t_data *data, int y, int color_table[MAX_ITER])
 		scaled_x = (x - WIDTH / 2.0) * (1.0 / (0.5 * data->zoom * WIDTH))
 			+ data->move_x;
 		if (data->fractal == 0)
-			iter = mandelbrot(scaled_x, scaled_y, data->julia_re,
-					data->julia_im);
+			iter = mandelbrot(scaled_x, scaled_y, data);
 		else if (data->fractal == 1)
-			iter = julia(scaled_x, scaled_y);
+			iter = julia(scaled_x, scaled_y, data);
 		else if (data->fractal == 2)
-			iter = burning_ship(scaled_x, scaled_y);
+			iter = burning_ship(scaled_x, scaled_y, data);
 		else if (data->fractal == 3)
-			iter = tricorn(scaled_x, scaled_y);
-		put_pixel(data, x, y, set_color(iter, color_table));
+			iter = tricorn(scaled_x, scaled_y, data);
+		put_pixel(data, x, y, set_color(iter, color_table, data));
 		x++;
 	}
 }

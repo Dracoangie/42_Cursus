@@ -6,13 +6,13 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:34:01 by angnavar          #+#    #+#             */
-/*   Updated: 2025/02/02 23:11:34 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:00:57 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
 
-void	generate_color_table(int iter, int color_table[iter], int colortype)
+void	generate_color_table(int iter, int *color_table, int colortype)
 {
 	int		g;
 	double	t;
@@ -37,7 +37,7 @@ void	generate_color_table(int iter, int color_table[iter], int colortype)
 	}
 }
 
-void	generate_color_table_rd(int iter, int color_table[iter])
+void	generate_color_table_rd(int iter, int *color_table)
 {
 	double	t;
 	int		r;

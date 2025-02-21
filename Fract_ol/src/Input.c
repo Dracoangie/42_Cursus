@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:45:43 by angnavar          #+#    #+#             */
-/*   Updated: 2025/01/31 17:19:19 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:47:45 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,74 @@ int	handle_input(int keysym, t_data *data)
 	return (0);
 }
 
-int	mouse_hook(int button, int x, int y, t_data *data)
+int	hand_mouse_input(int button, t_data *data, t_point *point)
 {
-	float	zoom_factor;
-	float	mouse_x;
-	float	mouse_y;
-
-	zoom_factor = 1;
-	mouse_x = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH) + data->move_x;
-	mouse_y = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT) + data->move_y;
 	if (button == 4)
 	{
-		zoom_factor = 1.1;
-		mouse_x = -((x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH))
-			+ data->move_x;
-		mouse_y = -((y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT))
-			+ data->move_y;
+		point->zoom_factor = 1.1;
+		point->mouse_x = -((point->x - WIDTH / 2.0) / (0.5 * data->zoom
+					* WIDTH)) + data->move_x;
+		point->mouse_y = -((point->y - HEIGHT / 2.0) / (0.5 * data->zoom
+					* HEIGHT)) + data->move_y;
+		data->max_iter += 7;
+		allocate_color_table(data);
 	}
 	else if (button == 5)
-		zoom_factor = 0.9;
+	{
+		point->zoom_factor = 0.9;
+		if (data->max_iter > 20)
+		{
+			data->max_iter -= 7;
+			allocate_color_table(data);
+		}
+	}
 	else
 		return (0);
-	data->zoom *= zoom_factor;
-	data->move_x = mouse_x + (data->move_x - mouse_x) * zoom_factor;
-	data->move_y = mouse_y + (data->move_y - mouse_y) * zoom_factor;
+	return (1);
+}
+
+int	mouse_hook(int button, int x, int y, t_data *data)
+{
+	t_point	point;
+
+	point.x = x;
+	point.y = y;
+	point.zoom_factor = 1;
+	point.mouse_x = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
+		+ data->move_x;
+	point.mouse_y = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
+		+ data->move_y;
+	if (hand_mouse_input(button, data, &point) == 0)
+		return (0);
+	if (data->color == 3)
+		generate_color_table_rd(data->max_iter, data->color_table);
+	else
+		generate_color_table(data->max_iter, data->color_table, data->color);
+	data->zoom *= point.zoom_factor;
+	data->move_x = point.mouse_x + (data->move_x - point.mouse_x)
+		* point.zoom_factor;
+	data->move_y = point.mouse_y + (data->move_y - point.mouse_y)
+		* point.zoom_factor;
 	draw_fractal(data, data->color_table);
 	return (0);
 }
 
+void	allocate_color_table(t_data *data)
+{
+	if (data->color_table != NULL)
+		free(data->color_table);
+	data->color_table = malloc(sizeof(int) * data->max_iter);
+	if (!data->color_table)
+	{
+		fprintf(stderr, "Error: No se pudo asignar memoria para color_table\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
 void	exit_program(t_data *data)
 {
+	if (data->color_table)
+		free(data->color_table);
 	if (data->img.img_ptr)
 		mlx_destroy_image(data->mlx, data->img.img_ptr);
 	if (data->win)
