@@ -1,21 +1,11 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/02 21:53:56 by angnavar          #+#    #+#              #
-#    Updated: 2025/02/03 02:22:44 by angnavar         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # ============================ VARIABLES PRINCIPALES =========================== #
 
 NAME        := pipex
+NAME_BONUS  := pipex_bonus
 
 # Directorios de código
 SRC_DIR     := src
+SRC_BONUS_DIR := src_bonus
 INCLUDE_DIR := includes
 LIBFT_DIR   := includes/libft
 PRINTF_DIR  := includes/ft_printf
@@ -25,8 +15,11 @@ LIBFT       := $(LIBFT_DIR)/libft.a
 PRINTF      := $(PRINTF_DIR)/libftprintf.a
 
 # Archivos fuente y objetos
-SRC         := $(wildcard $(SRC_DIR)/*.c)
+SRC         := src/helper.c src/main.c src/pipex.c
 OBJ         := $(SRC:.c=.o)
+
+SRC_BONUS   := src_bonus/here_doc.c src_bonus/helper_bonus.c src_bonus/main_bonus.c src_bonus/pipex_bonus.c src_bonus/comands.c
+OBJ_BONUS   := $(SRC_BONUS:.c=.o)
 
 # Compilador y flags
 CC          := cc
@@ -49,15 +42,33 @@ $(NAME): $(LIBFT) $(PRINTF) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
 	@echo "\033[0;32m▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ Compilación completada. ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄\033[0m"
 
+# ================================ REGLA BONUS ================================ #
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(LIBFT) $(PRINTF) $(OBJ_BONUS)
+	@echo "\033[0;34m🚀 Compilando BONUS...\033[0m"
+	@echo "\033[0;34m"
+	@echo "      ::::::::: ::::::::::: :::::::::  :::::::::: :::    ::: "
+	@echo "     :+:    :+:    :+:     :+:    :+: :+:        :+:    :+:  "
+	@echo "    +:+    +:+    +:+ +:+    +:+ +:+         +:+  +:+  +:+    "
+	@echo "   +#++:++#+     +#+     +#++:++#+  +#++:++#     +#++:+      "
+	@echo "  +#+           +#+     +#+        +#+         +#+  +#+      "
+	@echo " #+#           #+#     #+#        #+#        #+#    #+#      "
+	@echo "###       ########### ###        ########## ###    ###       "
+	@echo "\033[0m"
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) $(PRINTF) -o $(NAME_BONUS)
+	@echo "\033[0;32m▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ Compilación BONUS completada. ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄\033[0m"
+
 # ============================== COMPILACIÓN LIBRERÍAS ========================== #
 
 $(LIBFT):
-	@echo "📦 Compilando Libft..."
-	@$(MAKE) -s -C $(LIBFT_DIR)
+	@echo "📦 Verificando Libft..."
+	@$(MAKE) -s -C $(LIBFT_DIR) --no-print-directory
 
 $(PRINTF):
-	@echo "🖨️  Compilando ft_printf..."
-	@$(MAKE) -s -C $(PRINTF_DIR)
+	@echo "🖨️  Verificando ft_printf..."
+	@$(MAKE) -s -C $(PRINTF_DIR) --no-print-directory
 
 # =========================== COMPILACIÓN DE ARCHIVOS ========================== #
 
@@ -69,18 +80,18 @@ $(PRINTF):
 
 clean:
 	@echo "🧹 Limpiando archivos objeto..."
-	@$(MAKE) -s -C $(LIBFT_DIR) clean
-	@$(MAKE) -s -C $(PRINTF_DIR) clean
-	@rm -f $(OBJ)
+	@$(MAKE) -s -C $(LIBFT_DIR) clean --no-print-directory
+	@$(MAKE) -s -C $(PRINTF_DIR) clean --no-print-directory
+	@rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	@echo "🗑️  Eliminando ejecutable..."
-	@$(MAKE) -s -C $(LIBFT_DIR) fclean
-	@$(MAKE) -s -C $(PRINTF_DIR) fclean
-	@rm -f $(NAME)
+	@echo "🗑️  Eliminando ejecutables..."
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean --no-print-directory
+	@$(MAKE) -s -C $(PRINTF_DIR) fclean --no-print-directory
+	@rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
 # ============================== REGLAS ESPECIALES ============================== #
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
