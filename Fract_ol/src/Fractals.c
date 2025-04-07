@@ -6,13 +6,13 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:32:19 by angnavar          #+#    #+#             */
-/*   Updated: 2025/02/02 23:07:04 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:23:31 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
 
-int	julia(float cr, float ci)
+int	julia(double cr, double ci, t_data *data)
 {
 	float	zr;
 	float	zi;
@@ -23,11 +23,11 @@ int	julia(float cr, float ci)
 	zr = 0;
 	zi = 0;
 	iter = 0;
-	while ((zr * zr + zi * zi) < 16 && iter < MAX_ITER)
+	while ((zr * zr + zi * zi) < ESCAPE_RADIUS && iter < data->max_iter)
 	{
 		zr2 = zr * zr;
 		zi2 = zi * zi;
-		if (zr2 + zi2 > 16)
+		if (zr2 + zi2 > ESCAPE_RADIUS)
 			break ;
 		zi = 2 * zr * zi + ci;
 		zr = zr2 - zi2 + cr;
@@ -36,29 +36,27 @@ int	julia(float cr, float ci)
 	return (iter);
 }
 
-int	mandelbrot(float zr, float zi, float cr, float ci)
+int	mandelbrot(double zr, double zi, t_data *data)
 {
 	int		iter;
-	float	esc_rad;
 	float	zr2;
 	float	zi2;
 
 	iter = 0;
-	esc_rad = 16;
-	while ((zr * zr + zi * zi) < esc_rad && iter < MAX_ITER)
+	while ((zr * zr + zi * zi) < ESCAPE_RADIUS && iter < data->max_iter)
 	{
 		zr2 = zr * zr;
 		zi2 = zi * zi;
-		if (zr2 + zi2 > esc_rad)
+		if (zr2 + zi2 > ESCAPE_RADIUS)
 			break ;
-		zi = 2 * zr * zi + ci;
-		zr = zr2 - zi2 + cr;
+		zi = 2 * zr * zi + data->julia_im;
+		zr = zr2 - zi2 + data->julia_re;
 		iter++;
 	}
 	return (iter);
 }
 
-int	burning_ship(float cr, float ci)
+int	burning_ship(double cr, double ci, t_data *data)
 {
 	float	zr;
 	float	zi;
@@ -69,7 +67,7 @@ int	burning_ship(float cr, float ci)
 	zr = 0;
 	zi = 0;
 	iter = 0;
-	while ((zr * zr + zi * zi) < ESCAPE_RADIUS && iter < MAX_ITER)
+	while ((zr * zr + zi * zi) < ESCAPE_RADIUS && iter < data->max_iter)
 	{
 		zr2 = zr * zr;
 		zi2 = zi * zi;
@@ -82,7 +80,7 @@ int	burning_ship(float cr, float ci)
 	return (iter);
 }
 
-int	tricorn(float cr, float ci)
+int	tricorn(double cr, double ci, t_data *data)
 {
 	float	zr;
 	float	zi;
@@ -93,7 +91,7 @@ int	tricorn(float cr, float ci)
 	zr = 0;
 	zi = 0;
 	iter = 0;
-	while ((zr * zr + zi * zi) < ESCAPE_RADIUS && iter < MAX_ITER)
+	while ((zr * zr + zi * zi) < ESCAPE_RADIUS && iter < data->max_iter)
 	{
 		zr2 = zr * zr;
 		zi2 = zi * zi;
@@ -106,7 +104,7 @@ int	tricorn(float cr, float ci)
 	return (iter);
 }
 
-void	draw_fractal(t_data *data, int color_table[MAX_ITER])
+void	draw_fractal(t_data *data, int *color_table)
 {
 	int	y;
 

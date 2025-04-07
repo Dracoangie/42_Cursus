@@ -6,7 +6,7 @@
 #    By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 21:53:56 by angnavar          #+#    #+#              #
-#    Updated: 2025/02/03 16:14:37 by angnavar         ###   ########.fr        #
+#    Updated: 2025/02/10 18:49:29 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 MINILIBX = $(MINILIBX_DIR)/libmlx.a
 
-SRC = $(wildcard $(SRC_DIR)/*.c)
+SRC = src/colors.c src/Fractals.c src/Helper.c src/Input.c src/main.c
 OBJ = $(SRC:.c=.o)
 
 # Compilador y flags
