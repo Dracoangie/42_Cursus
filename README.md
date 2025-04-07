@@ -18,3 +18,5 @@ Push Swap ♟️ - Sorting algorithm with stacks.
 Pipex 🔗 - Process and pipe management in Unix.
 
 Fract-ol 🎨 - Fractal generation with graphs.
+
+Philosophers 🤔 - Concurrency and synchronization simulation in multithreaded programming.
