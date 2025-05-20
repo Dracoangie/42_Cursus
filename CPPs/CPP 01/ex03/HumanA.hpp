@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 17:49:09 by angnavar          #+#    #+#             */
-/*   Updated: 2025/04/08 16:23:05 by angnavar         ###   ########.fr       */
+/*   Created: 2025/04/22 12:47:57 by angnavar          #+#    #+#             */
+/*   Updated: 2025/04/22 18:21:14 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#ifndef HUMANA_HPP
 
-int	main(int argc, char **argv)
+# define HUMANA_HPP
+
+# include "Weapon.hpp"
+
+class HumanA
 {
-	if(argc > 1)
-	{
-		for(int i = 1; i < argc; i++)
-		{
-			for(int j = 0; argv[i][j]; j++)
-				argv[i][j] = toupper(argv[i][j]);
-			std::cout << argv[i];
-		}
-		std::cout << '\n';
-		return(0);
-	}
-	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-	return(0);
-}
+	std::string _name;
+	Weapon &_weapon;
+
+public:
+	HumanA(std::string name, Weapon &weapon);
+	~HumanA(void);
+
+	void setType(std::string type);
+	void attack(void);
+};
+
+#endif

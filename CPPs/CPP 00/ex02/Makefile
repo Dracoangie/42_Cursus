@@ -6,17 +6,20 @@
 #    By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/04/08 16:20:33 by angnavar         ###   ########.fr        #
+#    Updated: 2025/04/21 18:47:59 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = Account
 
-# Archivos fuente y objetos
-SRC = megaphone.cpp
+# Directorios
 OBJ_DIR = obj
-OBJ = $(SRC:.cpp=.o)
-OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
+
+# Nombres base de los archivos fuente
+SRC = Account.cpp tests.cpp
+
+# Archivos fuente y objetos (con rutas)
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 # Compilador y flags
 CC = c++
@@ -30,10 +33,10 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\033[0;34m"
-	@echo " _____        ___ ___ "
-	@echo "|   __|_ _   |   |   |"
-	@echo "|   __|_'_|  | | | | |"
-	@echo "|_____|_,_|  |___|___|"
+	@echo "  _____        ___ ___  " 
+	@echo " |   __|_ _   |   |_  |" 
+	@echo " |   __|_'_|  | | |  _|" 
+	@echo " |_____|_,_|  |___|___|" 
 	@echo "\033[0m"
 	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@echo "\033[0;32m▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄ Compilación completada. ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄\033[0m"
@@ -57,4 +60,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: all
+	@echo "\033[0;36m🚀 Ejecutando programa...\033[0m"
+	@./$(NAME)
+
+.PHONY: all clean fclean re run
+

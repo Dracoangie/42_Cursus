@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 17:49:09 by angnavar          #+#    #+#             */
-/*   Updated: 2025/04/08 16:23:05 by angnavar         ###   ########.fr       */
+/*   Created: 2025/04/08 12:05:08 by angnavar          #+#    #+#             */
+/*   Updated: 2025/04/10 12:06:40 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#ifndef CONTACT_HPP
 
-int	main(int argc, char **argv)
+# define CONTACT_HPP
+
+# include <iostream>
+# include <string>
+
+struct ContactInfo
 {
-	if(argc > 1)
-	{
-		for(int i = 1; i < argc; i++)
-		{
-			for(int j = 0; argv[i][j]; j++)
-				argv[i][j] = toupper(argv[i][j]);
-			std::cout << argv[i];
-		}
-		std::cout << '\n';
-		return(0);
-	}
-	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-	return(0);
-}
+	std::string firstName;
+	std::string lastName;
+	std::string phoneNumber;
+	std::string darkestSecret;
+};
+
+class	Contact
+{
+	ContactInfo contactEnum;
+	
+public:
+	Contact(void);
+	~Contact(void);
+
+	ContactInfo GetContactEnum(void);
+	void SetContact(ContactInfo contactEnum);
+};
+
+#endif

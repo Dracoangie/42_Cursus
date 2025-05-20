@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 17:49:09 by angnavar          #+#    #+#             */
-/*   Updated: 2025/04/08 16:23:05 by angnavar         ###   ########.fr       */
+/*   Created: 2025/04/22 12:59:30 by angnavar          #+#    #+#             */
+/*   Updated: 2025/04/22 13:28:14 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#include "Weapon.hpp"
 
-int	main(int argc, char **argv)
+Weapon::Weapon()
 {
-	if(argc > 1)
-	{
-		for(int i = 1; i < argc; i++)
-		{
-			for(int j = 0; argv[i][j]; j++)
-				argv[i][j] = toupper(argv[i][j]);
-			std::cout << argv[i];
-		}
-		std::cout << '\n';
-		return(0);
-	}
-	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-	return(0);
-}
+};
+
+Weapon::Weapon(std::string type)
+{
+	_type = type;
+};
+
+Weapon::~Weapon()
+{
+};
+
+void Weapon::setType(std::string type)
+{
+	std::cout << "\033[1;33m" << "Weapon of type: " << _type;
+	_type = type;
+	std::cout << ". Changes to: " << _type << ".\033[0m\n";
+};
+
+std::string Weapon::getType()
+{
+	return(_type);
+};

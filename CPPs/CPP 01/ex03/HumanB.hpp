@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 17:49:09 by angnavar          #+#    #+#             */
-/*   Updated: 2025/04/08 16:23:05 by angnavar         ###   ########.fr       */
+/*   Created: 2025/04/22 12:50:36 by angnavar          #+#    #+#             */
+/*   Updated: 2025/04/22 18:21:17 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#ifndef HUMANB_HPP
 
-int	main(int argc, char **argv)
+# define HUMANB_HPP
+
+# include "Weapon.hpp"
+
+class HumanB
 {
-	if(argc > 1)
-	{
-		for(int i = 1; i < argc; i++)
-		{
-			for(int j = 0; argv[i][j]; j++)
-				argv[i][j] = toupper(argv[i][j]);
-			std::cout << argv[i];
-		}
-		std::cout << '\n';
-		return(0);
-	}
-	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << '\n';
-	return(0);
-}
+	std::string _name;
+	Weapon *_weapon;
+
+public:
+	HumanB(std::string name);
+	~HumanB(void);
+
+	void setWeapon(Weapon *weapon);
+	void attack(void);
+};
+
+#endif
