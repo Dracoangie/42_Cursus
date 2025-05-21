@@ -15,6 +15,7 @@
 Harl::Harl()
 {
 	std::cout << "Harl has come! Do you know Harl? We all do, don’t we? In case you don’t, he complains a lot. But thats your problem now, good luck!" << std::endl;
+	sleep(1);
 };
 Harl::~Harl()
 {
@@ -26,43 +27,58 @@ Harl::~Harl()
 void Harl::debug()
 {
 	std::cout << "\033[1;35mI love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!\033[0m" << std::endl;
+	sleep(1);
+	Harl::info();
 };
 
 void Harl::info()
 {
 	std::cout << "\033[1;36mI cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!\033[0m" << std::endl;
+	sleep(1);
+	Harl::warning();
 };
 
 void Harl::warning()
 {
 	std::cout << "\033[1;33mI think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month.\033[0m" << std::endl;
+	sleep(1);
+	Harl::error();
 };
 
 void Harl::error()
 {
 	std::cout << "\033[1;31mThis is unacceptable! I want to speak to the manager now.\033[0m" << std::endl;
+	sleep(1);
 };
 
 // public
 
-void Harl::complain(std::string level)
+void Harl::complain(Complain level)
 {
-	typedef void (Harl::*Func)();
-	Func complains[] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
-
-	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
-
-	for (int i = 0; i < 4; i++)
-	{
-		if (levels[i] == level)
-		{
-			(this->*complains[i])();
-			return;
-		}
+	switch (level) {
+		case DEBUG:
+			debug();
+			break;
+		case INFO:
+			info();
+			break;
+		case WARNING:
+			warning();
+			break;
+		case ERROR:
+			error();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			sleep(1);
+			break;
 	}
 };
 
-void Harl::complainFrom(std::string level)
-{
-	
+Complain Harl::complainForm(const std::string& level) {
+	if (level == "DEBUG") return DEBUG;
+	if (level == "INFO") return INFO;
+	if (level == "WARNING") return WARNING;
+	if (level == "ERROR") return ERROR;
+	return ELSE;
 }

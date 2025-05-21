@@ -5,28 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 18:55:27 by angnavar          #+#    #+#             */
-/*   Updated: 2025/04/28 15:29:25 by angnavar         ###   ########.fr       */
+/*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
+/*   Updated: 2025/05/21 13:39:20 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 
-#include "Harl.hpp"
-
-int main(int argc, char* argv[])
+int main( void )
 {
-	if(argc != 2)
-	{
-		Harl harl = Harl();
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		sleep(1);
-	}
-	else
-	{
-		Harl harl = Harl();
-		std::string str = argv[1];
-		harl.complain(harl.complainForm(str));
-		
-	}
+	Fixed 		a;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
+
+	a = Fixed( 1234.4321f );
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	
 	return 0;
 }

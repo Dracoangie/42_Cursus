@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/23 11:23:24 by angnavar          #+#    #+#             */
-/*   Updated: 2025/04/28 15:28:10 by angnavar         ###   ########.fr       */
+/*   Created: 2025/05/20 13:31:48 by angnavar          #+#    #+#             */
+/*   Updated: 2025/05/21 14:27:05 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef _FIXED_HPP_
 
-#ifndef HARL_HPP
-
-# define HARL_HPP
+# define _FIXED_HPP_
 
 # include <iostream>
-# include <string>
-# include <unistd.h>
-#include <iostream>
-#include <string>
 
-enum Complain {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
-	ELSE
-};
-
-class Harl
+class Fixed
 {
-	
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
+private:
+	int					value;
+	static const int	fixed_bits = 8;
 
 public:
+	Fixed();
+	Fixed(const Fixed &src);
+	Fixed(const int int_num);
+	Fixed(const float float_num);
+	~Fixed();
 
-	Harl(void);
-	~Harl(void);
-	
-	void complain(Complain level );
-	
-	Complain complainForm(const std::string& level);
+	Fixed&	operator=(const Fixed &cpy);
+
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
+
+	float	toFloat(void) const;
+	int		toInt(void) const;
 };
 
 #endif
