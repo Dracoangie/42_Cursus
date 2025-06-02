@@ -13,7 +13,7 @@
 NAME = Fixed
 
 # Archivos fuente y objetos
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -28,9 +28,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 define banner
 	@echo "\033[0;34m"
-	@echo " _____        ___ ___ " 
-	@echo "|   __|_ _   |   |_  |" 
-	@echo "|   __|_'_|  | | |  _|" 
+	@echo " _____        ___ ___ "
+	@echo "|   __|_ _   |   |_  |"
+	@echo "|   __|_'_|  | | |_  |"
 	@echo "|_____|_,_|  |___|___|" 
 	@echo "\033[0m"
 endef
