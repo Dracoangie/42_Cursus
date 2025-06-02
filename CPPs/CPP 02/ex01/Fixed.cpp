@@ -33,7 +33,7 @@ Fixed::Fixed(const int int_num)
 Fixed::Fixed(const float float_num)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->value = float_num * (1 << fixed_bits);
+	this->value = static_cast<int>(roundf(float_num * (1 << fixed_bits)));
 }
 
 Fixed &Fixed::operator=(const Fixed &cpy)
@@ -66,7 +66,7 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	return (value >> fixed_bits);
+	return static_cast<int>(roundf(this->toFloat()));
 }
 
 Fixed::~Fixed()
