@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FIXED_HPP_
+#ifndef FIXED_HPP
 
-# define _FIXED_HPP_
+# define FIXED_HPP
 
 # include <iostream>
 
 class Fixed
 {
-private:
 	int					value;
 	static const int	fixed_bits = 8;
 
@@ -32,10 +31,12 @@ public:
 	Fixed&	operator=(const Fixed &cpy);
 
 	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
+	void	setRawBits(const int raw);
 
 	float	toFloat(void) const;
 	int		toInt(void) const;
 };
+
+std::ostream &operator<<(std::ostream &ostream, Fixed const &fixed);
 
 #endif

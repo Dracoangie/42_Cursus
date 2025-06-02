@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FIXED_HPP_
+#ifndef FIXED_HPP
 
-# define _FIXED_HPP_
+# define FIXED_HPP
 
 # include <iostream>
 
