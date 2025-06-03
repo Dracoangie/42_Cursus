@@ -42,7 +42,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const & cpy)
 	return *this;
 }
 
-void ClapTrap::typeWrite(const std::string& text, int delayMicroseconds = 30000)
+void ClapTrap::typeWrite(const std::string& text, int delayMicroseconds)
 {
 	for (size_t i = 0; i < text.length(); ++i) {
 		std::cout << text[i] << std::flush;
@@ -58,6 +58,7 @@ void ClapTrap::attack(const std::string &target)
     typeWrite(" causing ");
 	std::cout << attackDamage ;
     typeWrite(" points of damage!");
+    typeWrite(target);
     std::cout << RESET;
 }
 

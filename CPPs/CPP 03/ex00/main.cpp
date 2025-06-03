@@ -43,7 +43,7 @@ const size_t cat_lines = sizeof(cat1) / sizeof(cat1[0]);
 void printCatsFacingEachOther (std::string color1, std::string color2)
 {
 	for (size_t i = 0; i < cat_lines; ++i) {
-		std::cout << color1 << std::left << std::setw(40) << cat1[i] << RESET 
+		std::cout << color1 << std::left  << std::setw(40) << cat1[i] << std::setw(5) << RESET 
 				<< color2 << std::right << cat2[i] << RESET << std::endl;
 	}
 }
