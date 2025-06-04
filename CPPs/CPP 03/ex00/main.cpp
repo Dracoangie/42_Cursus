@@ -14,16 +14,29 @@
 # include <iomanip>
 
 const std::string cat1[] = {
-	"                            ,      ",
-	"                          _/((     ",
-	"                 _.---. .'   `\\   ",
-	"               .'      `     ^ T=  ",
-	"              /     \\       .--'  ",
-	"             |      /       )'-.   ",
-	"             ; ,   <__..-(   '-.)  ",
-	"             \\ \\-.__)    ``--._) ",
-	"              '.'-.__.-.           ",
-	"                 '-...-'           "
+	"                         ,         ",
+	"                       _/((        ",
+	"              _.---. .'   `\\      ",
+	"            .'      `     ^ T=     ",
+	"           /     \\       .--'     ",
+	"          |      /       )'-.      ",
+	"          ; ,   <__..-(   '-.)     ",
+	"          \\ \\-.__)    ``--._)    ",
+	"           '.'-.__.-.              ",
+	"             ''-...-'              "
+};
+
+const std::string cat4[] = {
+	"                             ,     ",
+	"                           _/((    ",
+	"                  _.---. .'   `\\  ",
+	"                .'      `     ^ T= ",
+	"               /     \\       .--' ",
+	"              |      /       )'-.  ",
+	"              ; ,   <__..-(   '-.) ",
+	"              \\ \\-.__)    ``--._)",
+	"               '.'-.__.-.          ",
+	"                 ''-...-'          "
 };
 
 const std::string cat2[] = {
@@ -38,36 +51,80 @@ const std::string cat2[] = {
 	"                      .-.__.-'.'",
 	"                       '-...-'"
 };
+
+const std::string cat3[] = {
+	"             ,",
+	"            \\)\\_",
+	"           /    '. .---._",
+	"         =P ^     `      '.",
+	"          `--.       /     \\",
+	"          .-'(       \\      |",
+	"         (.-'   )-..__>   , ;",
+	"         (_.--``    (__.-/ /",
+	"                 .-.__.-'.'",
+	"                  '-...-'"
+};
+
 const size_t cat_lines = sizeof(cat1) / sizeof(cat1[0]);
 
-void printCatsFacingEachOther (std::string color1, std::string color2)
+void printCatsFacingEachOther (std::string color1, std::string color2, int attack)
 {
 	for (size_t i = 0; i < cat_lines; ++i) {
-		std::cout << color1 << std::left  << std::setw(40) << cat1[i] << std::setw(5) << RESET 
-				<< color2 << std::right << cat2[i] << RESET << std::endl;
+		std::cout << color1 << std::left  << std::setw(40) << ((attack == 1) ? cat4[i]: cat1[i]) << std::setw(5) << RESET 
+				<< color2 << std::right << ((attack == 2) ? cat3[i]: cat2[i]) << RESET << std::endl;
 	}
 }
 
-void printCat(const std::string cat[], size_t lines)
-{
-	for (size_t i = 0; i < lines; ++i)
-		std::cout << YELLOW << cat[i] << RESET << std::endl;
+void printCat(size_t lines)
+{	
+	for (size_t j = 0; j < lines; ++j)
+	{
+		usleep(80000);
+		std::cout << "\033[2J\033[1;1H";
+		for (size_t i = 0; i < lines - j -1; ++i)
+			std::cout << std::endl;
+		for (size_t i = 0; i < j + 1; ++i)
+			std::cout << YELLOW << cat1[i] << RESET << std::endl;
+	}
+	std::cout << GREEN;
+	ClapTrap::typeWrite("First Claptrap apeared!");
+	std::cout << RESET;
+	usleep(500000);
+	for (size_t j = 0; j < lines; ++j)
+	{
+		usleep(80000);
+		std::cout << "\033[2J\033[1;1H";
+		for (size_t i = 0; i < lines - j-1; ++i)
+			std::cout << YELLOW << cat1[i] << RESET << std::endl;
+		for (size_t i = 0; i < j + 1; ++i)
+			std::cout << YELLOW << std::left << std::setw(40) << cat1[(lines - j -1) + i] 
+			<< std::right << cat2[i] << RESET << std::endl;
+	}
+	std::cout << GREEN;
+	ClapTrap::typeWrite("Second Claptrap apeared!");
+	std::cout << RESET;
+	usleep(500000);
 }
 
 void catRest()
 {
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(YELLOW, YELLOW);
-	usleep(400000);
+	std::cout << std::endl;
+	printCatsFacingEachOther(YELLOW, YELLOW, 0);
+	usleep(300000);
+
+	std::cout << "\033[2J\033[1;1H";
+	printCatsFacingEachOther(YELLOW, YELLOW, 0);
+	usleep(300000);
 
 	std::cout << "\033[2J\033[1;1H";
 	std::cout << std::endl;
-	printCatsFacingEachOther(YELLOW, YELLOW);
-	usleep(400000);
+	printCatsFacingEachOther(YELLOW, YELLOW, 0);
+	usleep(300000);
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(YELLOW, YELLOW);
-	usleep(400000);
+	printCatsFacingEachOther(YELLOW, YELLOW, 0);
+	usleep(300000);
 }
 
 void catAction(ClapTrap Simba, ClapTrap Nala)
@@ -75,26 +132,39 @@ void catAction(ClapTrap Simba, ClapTrap Nala)
 	catRest();
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(CYAN, YELLOW);
+	printCatsFacingEachOther(CYAN, YELLOW, 1);
 	Simba.attack("Nala");
 	usleep(800000);
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(YELLOW, RED);
+	printCatsFacingEachOther(YELLOW, RED, 0);
 	Nala.takeDamage(0);
 	usleep(800000);
 
 	catRest();
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(YELLOW, CYAN);
+	printCatsFacingEachOther(YELLOW, CYAN, 2);
 	Nala.attack("Simba");
 	usleep(800000);
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(RED, YELLOW);
+	printCatsFacingEachOther(RED, YELLOW, 0);
 	Simba.takeDamage(0);
 	usleep(800000);
 	
 	catRest();
+}
+
+void endBattle()
+{
+	sleep(1);
+	std::cout << CYAN;
+	ClapTrap::typeWrite(".  .  .", 400000);
+	std::cout << std::endl;
+	ClapTrap::typeWrite("This battle will be eternal, they are not doing any damage!");
+	std::cout << std::endl;
+	ClapTrap::typeWrite("lets drop this here . . .", 100000);
+	std::cout << std::endl;
+	sleep(1);
 }
 
 int main( void )
@@ -103,10 +173,25 @@ int main( void )
 
 	ClapTrap Simba("Simba");
 	ClapTrap Nala("Nala");
-	printCat(cat1, cat_lines);
+	printCat(cat_lines);
 	sleep(1);
 	catAction(Simba , Nala);
 	catAction(Simba , Nala);
+	endBattle();
 
 	return 0;
 }
+
+/*
+int main( void )
+{
+	ClapTrap clapTrap1("clapTrap1");
+	ClapTrap clapTrap2("clapTrap2");
+
+	clapTrap1.attack("clapTrap2");
+	clapTrap2.takeDamage(10);
+	clapTrap1.beRepaired(2);
+	clapTrap1.beRepaired(123);
+
+	return 0;
+}*/

@@ -17,6 +17,7 @@
 # include <iostream>
 # include <string>
 # include <unistd.h>
+# include <sstream>
 
 #define RESET   "\033[0m"
 #define GREEN   "\033[32m"
