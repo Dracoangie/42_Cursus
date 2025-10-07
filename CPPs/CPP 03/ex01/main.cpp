@@ -6,11 +6,11 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/08 00:02:53 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:02:31 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 # include <iomanip>
 
 const std::string cat1[] = {
@@ -127,7 +127,7 @@ void catRest()
 	usleep(300000);
 }
 
-void catAction(ClapTrap Simba, ClapTrap Nala)
+void catAction(ScavTrap Simba, ScavTrap Nala)
 {
 	catRest();
 
@@ -171,8 +171,8 @@ int catBattle( void )
 {
 	std::cout << "\033[2J\033[1;1H";
 
-	ClapTrap Simba("Simba");
-	ClapTrap Nala("Nala");
+	ScavTrap Simba("Simba");
+	ScavTrap Nala("Nala");
 	printCat(cat_lines);
 	sleep(1);
 	catAction(Simba , Nala);
@@ -181,6 +181,7 @@ int catBattle( void )
 
 	return 0;
 }
+
 
 int main( int argc, char** argv )
 {
@@ -195,8 +196,8 @@ int main( int argc, char** argv )
 			return 0;
 		}
 	}
-	ClapTrap clapTrap1("clapTrap1");
-	ClapTrap clapTrap2("clapTrap2");
+	ScavTrap clapTrap1("clapTrap1");
+	ScavTrap clapTrap2("clapTrap2");
 
 	clapTrap1.attack("clapTrap2");
 	clapTrap2.takeDamage(10);
