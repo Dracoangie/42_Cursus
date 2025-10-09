@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/08 00:03:39 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/09 14:23:23 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ ScavTrap::ScavTrap(const ScavTrap &src)
 {
     *this = src;
     std::cout << "ScavTrap Copy Constructor called!" << std::endl;
+}
+
+ScavTrap::~ScavTrap()
+{
+    std::cout << "ScavTrap Destructor called!" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &cpy)

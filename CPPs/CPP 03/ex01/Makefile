@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+         #
+#    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/10/08 00:03:41 by angnavar         ###   ########.fr        #
+#    Updated: 2025/10/09 14:21:01 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ScavTrap
 
 # Archivos fuente y objetos
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
