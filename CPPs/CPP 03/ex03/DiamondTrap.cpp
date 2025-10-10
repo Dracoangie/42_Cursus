@@ -6,76 +6,73 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:39:21 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/10 14:00:06 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-FragTrap::FragTrap()
-    : ClapTrap("FragTrap")
+DiamondTrap::DiamondTrap()
 {
-    this->hitPoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
-    std::cout << "FragTrap Default Constructor called!" << std::endl;
+	this->name = "DiamondTrap";
+	ScavTrap::name = name + "_clap_name";
+    FragTrap::hitPoints = 100;
+    ScavTrap::ScavTrap::energyPoints = 50;
+    FragTrap::FragTrap::attackDamage = 20;
+    std::cout << "DiamondTrap Default Constructor called!" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name)
-    : ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name)
 {
-    this->hitPoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
-    std::cout << "FragTrap Constructor called with name: " << name << std::endl;
+    this->name = name;
+    FragTrap::name = name + "_clap_name";
+    ScavTrap::name = name + "_clap_name";
+    FragTrap::hitPoints = 100;
+    ScavTrap::ScavTrap::energyPoints = 50;
+    FragTrap::FragTrap::attackDamage = 20;
+    std::cout << "DiamondTrap Constructor called with name: " << name << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &src)
-    : ClapTrap(src)
+DiamondTrap::DiamondTrap(const DiamondTrap &src)
+    : FragTrap(src), ScavTrap(src)
 {
     *this = src;
-    std::cout << "FragTrap Copy Constructor called!" << std::endl;
+    std::cout << "DiamondTrap Copy Constructor called!" << std::endl;
 }
 
-FragTrap::~FragTrap()
+DiamondTrap::~DiamondTrap()
 {
-    std::cout << "FragTrap Destructor called!" << std::endl;
+    std::cout << "DiamondTrap Destructor called!" << std::endl;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap &cpy)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &cpy)
 {
     if (this != &cpy)
     {
-        ClapTrap::operator=(cpy);
+        FragTrap::operator=(cpy);
+        ScavTrap::operator=(cpy);
     }
     return *this;
 }
 
-void FragTrap::attack(const std::string& target)
+void DiamondTrap::whoAmI(void)
 {
     std::ostringstream oss;
-    if (energyPoints <= 0)
-    {
-        oss << "FragTrap " << name << " tries to attack " << target
-            << " but fails!";
-    }
-    else
-    {
-        oss << "FragTrap " << name << " attacks " << target
-            << " causing " << attackDamage << " points of damage!";
-        energyPoints--;
-    }
+	oss << "DiamondTrap name: " << this->name << ", ClapTrap name: " << FragTrap::name << std::endl;
+	ClapTrap::typeWrite(oss.str());
+}	
 
-    std::cout << CYAN;
-    typeWrite(oss.str());
-    std::cout << RESET << std::endl;
+void DiamondTrap::attack(const std::string& target)
+{
+	ScavTrap::attack(target);
 }
 
-void FragTrap::highFivesGuys(void)
+void DiamondTrap::guardGate(void)
 {
-    std::ostringstream oss;
+	ScavTrap::guardGate();
+}
 
-    oss << YELLOW << "FragTrap " << name << " is giving a high five!"
-	<< std::endl << " (●ゝω)ノヽ(∀＜●)" << RESET << std::endl;
-    typeWrite(oss.str());
+void DiamondTrap::highFivesGuys(void)
+{
+	FragTrap::highFivesGuys();
 }
