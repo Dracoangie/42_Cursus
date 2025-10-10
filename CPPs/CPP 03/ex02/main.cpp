@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:35:30 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:42:18 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void catAction(FragTrap *Simba, FragTrap *Nala)
 	usleep(800000);
 	std::cout << "\033[2J\033[1;1H";
 	printCatsFacingEachOther(BGREEN, RED, 0);
-	Nala->takeDamage(20);
+	Nala->takeDamage(30);
 	usleep(800000);
 
 	catRest();
@@ -147,7 +147,7 @@ void catAction(FragTrap *Simba, FragTrap *Nala)
 	usleep(800000);
 	std::cout << "\033[2J\033[1;1H";
 	printCatsFacingEachOther(RED, BGREEN, 0);
-	Simba->takeDamage(20);
+	Simba->takeDamage(30);
 	usleep(800000);
 	
 	catRest();
@@ -209,12 +209,12 @@ int main( int argc, char** argv )
 	FragTrap FragTrap2("Second");
 
 	FragTrap1.attack("Second");
-	FragTrap2.takeDamage(20);
+	FragTrap2.takeDamage(30);
 	FragTrap2.attack("First");
-	FragTrap1.takeDamage(20);
+	FragTrap1.takeDamage(30);
 
-	FragTrap1.beRepaired(20);
-	FragTrap2.beRepaired(20);
+	FragTrap1.beRepaired(30);
+	FragTrap2.beRepaired(30);
 
 	FragTrap1.highFivesGuys();
 	FragTrap2.highFivesGuys();
