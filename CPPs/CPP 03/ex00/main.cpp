@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/08 00:02:53 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:06:40 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,9 @@ const std::string cat3[] = {
 	"                  '-...-'"
 };
 
-const size_t cat_lines = sizeof(cat1) / sizeof(cat1[0]);
-
 void printCatsFacingEachOther (std::string color1, std::string color2, int attack)
 {
-	for (size_t i = 0; i < cat_lines; ++i) {
+	for (size_t i = 0; i < (sizeof(cat1) / sizeof(cat1[0])); ++i) {
 		std::cout << color1 << std::left  << std::setw(40) << ((attack == 1) ? cat4[i]: cat1[i]) << std::setw(5) << RESET 
 				<< color2 << std::right << ((attack == 2) ? cat3[i]: cat2[i]) << RESET << std::endl;
 	}
@@ -173,7 +171,7 @@ int catBattle( void )
 
 	ClapTrap Simba("Simba");
 	ClapTrap Nala("Nala");
-	printCat(cat_lines);
+	printCat((sizeof(cat1) / sizeof(cat1[0])));
 	sleep(1);
 	catAction(Simba , Nala);
 	catAction(Simba , Nala);
