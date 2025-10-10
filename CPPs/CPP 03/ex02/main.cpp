@@ -6,10 +6,11 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:11:37 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:35:30 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 # include <iomanip>
 
@@ -82,10 +83,10 @@ void printCat(size_t lines)
 		for (size_t i = 0; i < lines - j -1; ++i)
 			std::cout << std::endl;
 		for (size_t i = 0; i < j + 1; ++i)
-			std::cout << PINK << cat1[i] << RESET << std::endl;
+			std::cout << BGREEN << cat1[i] << RESET << std::endl;
 	}
 	std::cout << GREEN;
-	ClapTrap::typeWrite("First ScavTrap apeared!");
+	ClapTrap::typeWrite("First FragTrap apeared!");
 	std::cout << RESET;
 	usleep(400000);
 	for (size_t j = 0; j < lines; ++j)
@@ -93,13 +94,13 @@ void printCat(size_t lines)
 		usleep(80000);
 		std::cout << "\033[2J\033[1;1H";
 		for (size_t i = 0; i < lines - j-1; ++i)
-			std::cout << PINK << cat1[i] << RESET << std::endl;
+			std::cout << BGREEN << cat1[i] << RESET << std::endl;
 		for (size_t i = 0; i < j + 1; ++i)
-			std::cout << PINK << std::left << std::setw(40) << cat1[(lines - j -1) + i] 
+			std::cout << BGREEN << std::left << std::setw(40) << cat1[(lines - j -1) + i] 
 			<< std::right << cat2[i] << RESET << std::endl;
 	}
 	std::cout << GREEN;
-	ClapTrap::typeWrite("Second ScavTrap apeared!");
+	ClapTrap::typeWrite("Second FragTrap apeared!");
 	std::cout << RESET;
 	usleep(400000);
 }
@@ -108,44 +109,44 @@ void catRest()
 {
 	std::cout << "\033[2J\033[1;1H";
 	std::cout << std::endl;
-	printCatsFacingEachOther(PINK, PINK, 0);
+	printCatsFacingEachOther(BGREEN, BGREEN, 0);
 	usleep(200000);
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(PINK, PINK, 0);
+	printCatsFacingEachOther(BGREEN, BGREEN, 0);
 	usleep(200000);
 
 	std::cout << "\033[2J\033[1;1H";
 	std::cout << std::endl;
-	printCatsFacingEachOther(PINK, PINK, 0);
+	printCatsFacingEachOther(BGREEN, BGREEN, 0);
 	usleep(200000);
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(PINK, PINK, 0);
+	printCatsFacingEachOther(BGREEN, BGREEN, 0);
 	usleep(200000);
 }
 
-void catAction(ScavTrap *Simba, ScavTrap *Nala)
+void catAction(FragTrap *Simba, FragTrap *Nala)
 {
 	catRest();
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(CYAN, PINK, 1);
+	printCatsFacingEachOther(CYAN, BGREEN, 1);
 	Simba->attack("Nala");
 	usleep(800000);
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(PINK, RED, 0);
+	printCatsFacingEachOther(BGREEN, RED, 0);
 	Nala->takeDamage(20);
 	usleep(800000);
 
 	catRest();
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(PINK, CYAN, 2);
+	printCatsFacingEachOther(BGREEN, CYAN, 2);
 	Nala->attack("Simba");
 	usleep(800000);
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(RED, PINK, 0);
+	printCatsFacingEachOther(RED, BGREEN, 0);
 	Simba->takeDamage(20);
 	usleep(800000);
 	
@@ -158,9 +159,10 @@ void endBattle()
 	std::cout << CYAN;
 	ClapTrap::typeWrite(".  .  .", 400000);
 	std::cout << std::endl;
-	ClapTrap::typeWrite("They both enter on Gate Keeper mode!");
+	ClapTrap::typeWrite("They are friends now!");
 	std::cout << std::endl;
-	ClapTrap::typeWrite("lets drop this here . . .", 100000);
+	ClapTrap::typeWrite("The battle is over now . . . ", 100000);
+	ClapTrap::typeWrite("Or did you expect friends to keep fighting?", 20000);
 	std::cout << RESET << std::endl;
 	sleep(1);
 }
@@ -169,8 +171,8 @@ int catBattle( void )
 {
 	std::cout << "\033[2J\033[1;1H";
 
-	ScavTrap Simba("Simba");
-	ScavTrap Nala("Nala");
+	FragTrap Simba("Simba");
+	FragTrap Nala("Nala");
 	
 	printCat((sizeof(cat1) / sizeof(cat1[0])));
 	sleep(1);
@@ -178,13 +180,13 @@ int catBattle( void )
 	catAction(&Simba, &Nala);
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(MAGENTA, PINK, 0);
+	printCatsFacingEachOther(YELLOW, BGREEN, 0);
 	usleep(200000);
-	Simba.guardGate();
+	Simba.highFivesGuys();
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(MAGENTA, MAGENTA, 0);
+	printCatsFacingEachOther(YELLOW, YELLOW, 0);
 	usleep(200000);
-	Nala.guardGate();
+	Nala.highFivesGuys();
 
 	endBattle();
 	return 0;
@@ -203,19 +205,19 @@ int main( int argc, char** argv )
 			return 0;
 		}
 	}
-	ScavTrap scavTrap1("First");
-	ScavTrap scavTrap2("Second");
+	FragTrap FragTrap1("First");
+	FragTrap FragTrap2("Second");
 
-	scavTrap1.attack("Second");
-	scavTrap2.takeDamage(20);
-	scavTrap2.attack("First");
-	scavTrap1.takeDamage(20);
+	FragTrap1.attack("Second");
+	FragTrap2.takeDamage(20);
+	FragTrap2.attack("First");
+	FragTrap1.takeDamage(20);
 
-	scavTrap1.beRepaired(20);
-	scavTrap2.beRepaired(20);
+	FragTrap1.beRepaired(20);
+	FragTrap2.beRepaired(20);
 
-	scavTrap1.guardGate();
-	scavTrap2.guardGate();
+	FragTrap1.highFivesGuys();
+	FragTrap2.highFivesGuys();
 
 	return 0;
 }

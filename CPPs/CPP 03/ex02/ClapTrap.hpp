@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:09:32 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:24:14 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sstream>
 
 #define RESET   "\033[0m"
+#define BGREEN   "\033[92m"
 #define GREEN   "\033[32m"
 #define RED     "\033[31m"
 #define CYAN    "\033[36m"
