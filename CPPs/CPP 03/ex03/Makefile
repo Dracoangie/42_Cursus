@@ -6,14 +6,14 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/10/10 13:38:53 by angnavar         ###   ########.fr        #
+#    Updated: 2025/10/10 14:03:08 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = DiamondTrap
 
 # Archivos fuente y objetos
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
