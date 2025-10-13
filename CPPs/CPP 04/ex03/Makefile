@@ -6,14 +6,14 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/10/13 20:42:41 by angnavar         ###   ########.fr        #
+#    Updated: 2025/10/13 20:42:50 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = DiamondTrap
+NAME = Interface
 
 # Archivos fuente y objetos
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC = main.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -31,7 +31,7 @@ define banner
 	@echo " _____        ___ ___ "
 	@echo "|   __|_ _   |   |_  |"
 	@echo "|   __|_'_|  | | |_  |"
-	@echo "|_____|_,_|  |___|___|" 
+	@echo "|_____|_,_|  |___|___|"  
 	@echo "\033[0m"
 endef
 
