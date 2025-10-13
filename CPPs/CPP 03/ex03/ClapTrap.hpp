@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:24:14 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:37:50 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #define GREEN   "\033[32m"
 #define RED     "\033[31m"
 #define CYAN    "\033[36m"
+#define BLUE    "\033[34m"
 #define YELLOW  "\033[33m"
 #define PINK    "\033[95m"
 #define MAGENTA "\033[35m"

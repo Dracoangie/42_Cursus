@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 14:00:06 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:50:41 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,25 @@
 DiamondTrap::DiamondTrap()
 {
 	this->name = "DiamondTrap";
-	ScavTrap::name = name + "_clap_name";
+	ClapTrap::name = name + "_clap_name";
     FragTrap::hitPoints = 100;
-    ScavTrap::ScavTrap::energyPoints = 50;
-    FragTrap::FragTrap::attackDamage = 20;
+    ScavTrap::energyPoints = 50;
+    FragTrap::attackDamage = 20;
     std::cout << "DiamondTrap Default Constructor called!" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
 {
     this->name = name;
-    FragTrap::name = name + "_clap_name";
-    ScavTrap::name = name + "_clap_name";
+    ClapTrap::name = name + "_clap_name";
     FragTrap::hitPoints = 100;
-    ScavTrap::ScavTrap::energyPoints = 50;
-    FragTrap::FragTrap::attackDamage = 20;
+    ScavTrap::energyPoints = 50;
+    FragTrap::attackDamage = 20;
     std::cout << "DiamondTrap Constructor called with name: " << name << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &src)
-    : FragTrap(src), ScavTrap(src)
+    : ClapTrap(src), FragTrap(src), ScavTrap(src)
 {
     *this = src;
     std::cout << "DiamondTrap Copy Constructor called!" << std::endl;
@@ -58,13 +57,15 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &cpy)
 void DiamondTrap::whoAmI(void)
 {
     std::ostringstream oss;
-	oss << "DiamondTrap name: " << this->name << ", ClapTrap name: " << FragTrap::name << std::endl;
+	oss << PINK << this->name << " is confused! ,it doesn't know its own name. " << std::endl
+		<< "is the ClapTrap name: " << FragTrap::name << std::endl
+		<< "or the DiamondTrap name: " << ScavTrap::name << std::endl << RESET;
 	ClapTrap::typeWrite(oss.str());
 }	
 
 void DiamondTrap::attack(const std::string& target)
 {
-	ScavTrap::attack(target);
+	ClapTrap::attack(target);
 }
 
 void DiamondTrap::guardGate(void)
@@ -75,4 +76,14 @@ void DiamondTrap::guardGate(void)
 void DiamondTrap::highFivesGuys(void)
 {
 	FragTrap::highFivesGuys();
+}
+
+void DiamondTrap::takeDamage(unsigned int amount)
+{
+	ClapTrap::takeDamage(amount);
+}
+
+void DiamondTrap::beRepaired(unsigned int amount)
+{
+	ClapTrap::beRepaired(amount);
 }

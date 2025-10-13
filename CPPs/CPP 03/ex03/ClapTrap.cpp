@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 12:49:10 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:53:28 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 ClapTrap::ClapTrap(): name(""), hitPoints(10),
  energyPoints(10), attackDamage(0)
 {
+    std::cout << "ClapTrap Default Constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 	: name(name), hitPoints(10), energyPoints(2), attackDamage(0)
 {
+    std::cout << "ClapTrap Constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
     *this = src;
+	std::cout << "ClapTrap Copy Constructor called!" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
+    std::cout << "ClapTrap Destructor called!" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const & cpy)
@@ -56,12 +60,12 @@ void ClapTrap::attack(const std::string &target)
 
 	if(energyPoints <= 0)
 	{
-		oss << "ClapTrap " << name << " tries to attack " << target
+		oss << name << " tries to attack " << target
 			<< " but fail!";
 	}
 	else
 	{
-		oss << "ClapTrap " << name << " attacks " << target
+		oss << name << " attacks " << target
 			<< " causing " << attackDamage << " points of damage!";
 		energyPoints --;
 	}

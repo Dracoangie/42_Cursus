@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:52:36 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:53:32 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void FragTrap::attack(const std::string& target)
     std::ostringstream oss;
     if (energyPoints <= 0)
     {
-        oss << "FragTrap " << name << " tries to attack " << target
+        oss << name << " tries to attack " << target
             << " but fails!";
     }
     else
     {
-        oss << "FragTrap " << name << " attacks " << target
+        oss << name << " attacks " << target
             << " causing " << attackDamage << " points of damage!";
         energyPoints--;
     }
@@ -75,7 +75,7 @@ void FragTrap::highFivesGuys(void)
 {
     std::ostringstream oss;
 
-    oss << YELLOW << "FragTrap " << name << " is giving a high five!"
+    oss << YELLOW << name << " is giving a high five!"
 	<< std::endl << " (●ゝω)ノヽ(∀＜●)" << RESET << std::endl;
     typeWrite(oss.str());
 }

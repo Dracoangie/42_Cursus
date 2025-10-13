@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/10 13:10:09 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:54:21 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void ScavTrap::attack(const std::string& target)
     std::ostringstream oss;
     if (energyPoints <= 0)
     {
-        oss << "ScavTrap " << name << " tries to attack " << target
+        oss << name << " tries to attack " << target
             << " but fails!";
     }
     else
     {
-        oss << "ScavTrap " << name << " attacks " << target
+        oss << name << " attacks " << target
             << " causing " << attackDamage << " points of damage!";
         energyPoints--;
     }
@@ -75,6 +75,6 @@ void ScavTrap::guardGate()
 {
     std::ostringstream oss;
 
-    oss << MAGENTA << "ScavTrap " << name << " is now in Gate Keeper mode!" << RESET << std::endl;
+    oss << MAGENTA << name << " is now in Gate Keeper mode!" << RESET << std::endl;
     typeWrite(oss.str());
 }
