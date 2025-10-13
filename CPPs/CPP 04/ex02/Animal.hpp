@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:39:18 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/13 19:08:32 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/13 20:16:07 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ class Animal
 {
 protected:
 	std::string type;
-public:
 	Animal();
+public:
 	virtual ~Animal();
 	Animal(const Animal &other);
 	Animal &operator=(const Animal &other);

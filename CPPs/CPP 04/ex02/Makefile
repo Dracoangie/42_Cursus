@@ -6,11 +6,11 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/10/13 18:46:34 by angnavar         ###   ########.fr        #
+#    Updated: 2025/10/13 19:19:53 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = AnimalBrain
+NAME = AAnimal
 
 # Archivos fuente y objetos
 SRC = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
@@ -28,10 +28,10 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 define banner
 	@echo "\033[0;34m"
-	@echo " _____        ___ ___   "
-	@echo "|   __|_ _   |   |_  |  "
-	@echo "|   __|_'_|  | | |_| |_ "
-	@echo "|_____|_,_|  |___|_____|"
+	@echo " _____        ___ ___ " 
+	@echo "|   __|_ _   |   |_  |" 
+	@echo "|   __|_'_|  | | |  _|" 
+	@echo "|_____|_,_|  |___|___|" 
 	@echo "\033[0m"
 endef
 
