@@ -6,17 +6,14 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/10/14 13:27:34 by angnavar         ###   ########.fr        #
+#    Updated: 2025/10/13 20:42:50 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Interface
 
 # Archivos fuente y objetos
-SRC = main.cpp \
-	  AMateria.cpp  Cure.cpp  Ice.cpp \
-	  MateriaSource.cpp \
-	  Character.cpp
+SRC = main.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))

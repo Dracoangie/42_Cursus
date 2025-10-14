@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 12:38:09 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/14 13:12:03 by angnavar         ###   ########.fr       */
+/*   Created: 2025/10/14 13:20:08 by angnavar          #+#    #+#             */
+/*   Updated: 2025/10/14 13:22:04 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
+# include "IMateriaSource.hpp"
 
-# include <iostream>
-# include <string>
-# include <sstream>
-
-class AMateria;
-class ICharacter
+class MateriaSource : public IMateriaSource
 {
+private:
+	AMateria* materia[4];
 public:
-	virtual ~ICharacter() {}
-	virtual std::string const & getName() const = 0;
-	virtual void equip(AMateria* m) = 0;
-	virtual void unequip(int index) = 0;
-	virtual void use(int index, ICharacter& target) = 0;
+	MateriaSource();
+	virtual ~MateriaSource();
+	MateriaSource(const MateriaSource &other);
+	MateriaSource &operator=(const MateriaSource &other);
+	virtual void learnMateria(AMateria* m);
+	virtual AMateria* createMateria(std::string const & type);
 };
 #endif

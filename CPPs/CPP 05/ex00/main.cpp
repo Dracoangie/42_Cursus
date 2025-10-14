@@ -1,30 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 12:38:09 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/14 13:12:03 by angnavar         ###   ########.fr       */
+/*   Created: 2025/10/13 20:41:40 by angnavar          #+#    #+#             */
+/*   Updated: 2025/10/14 12:28:06 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
 
-# include <iostream>
-# include <string>
-# include <sstream>
-
-class AMateria;
-class ICharacter
+int main()
 {
-public:
-	virtual ~ICharacter() {}
-	virtual std::string const & getName() const = 0;
-	virtual void equip(AMateria* m) = 0;
-	virtual void unequip(int index) = 0;
-	virtual void use(int index, ICharacter& target) = 0;
-};
-#endif
+	return 0;
+}
