@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/05/20 13:54:10 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/17 10:21:23 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ public:
     void beRepaired(unsigned int amount);
 
     static void typeWrite(const std::string &text, int delayMicroseconds = 30000);
+
+	static const std::string cat1[10];
+    static const std::string cat2[10];
+    static const std::string cat3[10];
+    static const std::string cat4[10];
 };
 
 #endif

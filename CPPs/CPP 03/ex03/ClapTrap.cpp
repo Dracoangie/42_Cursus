@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/13 13:53:28 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/17 10:36:18 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void ClapTrap::attack(const std::string &target)
 
 	if(energyPoints <= 0)
 	{
-		oss << name << " tries to attack " << target
+		oss << this->name << " tries to attack " << target
 			<< " but fail!";
 	}
 	else
 	{
-		oss << name << " attacks " << target
+		oss << this->name << " attacks " << target
 			<< " causing " << attackDamage << " points of damage!";
 		energyPoints --;
 	}
@@ -82,9 +82,9 @@ void ClapTrap::takeDamage(unsigned int amount)
     if (amount > static_cast<unsigned int>(hitPoints))
         hitPoints = 0;
     else hitPoints -= amount;
-	oss << RED  << name << " takes "<< amount  << " points of damage!" << RESET << std::endl;
+	oss << RED  << this->name << " takes "<< amount  << " points of damage!" << RESET << std::endl;
     if (hitPoints <= 0) 
-	    oss << RED  << name << " dies under terrible circunstances..." << RESET << std::endl;
+	    oss << RED  << this->name << " dies under terrible circunstances..." << RESET << std::endl;
 	
 	std::cout << CYAN;
 	typeWrite(oss.str());
@@ -96,11 +96,11 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::ostringstream oss;
 
 	if(energyPoints <= 0)
-		oss << name << " tries to heal " << " but fail!";
+		oss << this->name << " tries to heal " << " but fail!";
 	else
 	{
 		hitPoints += amount;
-		oss << name << " heals " << amount << "! ";
+		oss << this->name << " heals " << amount << "! ";
 		energyPoints --;
 	}
 
@@ -108,3 +108,55 @@ void ClapTrap::beRepaired(unsigned int amount)
 	typeWrite(oss.str());
 	std::cout << RESET << std::endl;
 }
+
+const std::string ClapTrap::cat1[] = {
+    "                         ,         ",
+    "                       _/((        ",
+    "              _.---. .'   `\\      ",
+    "            .'      `     ^ T=     ",
+    "           /     \\       .--'     ",
+    "          |      /       )'-.      ",
+    "          ; ,   <__..-(   '-.)     ",
+    "          \\ \\-.__)    ``--._)    ",
+    "           '.'-.__.-.              ",
+    "             ''-...-'              "
+};
+
+const std::string ClapTrap::cat4[] = {
+    "                             ,     ",
+    "                           _/((    ",
+    "                  _.---. .'   `\\  ",
+    "                .'      `     ^ T= ",
+    "               /     \\       .--' ",
+    "              |      /       )'-.  ",
+    "              ; ,   <__..-(   '-.) ",
+    "              \\ \\-.__)    ``--._)",
+    "               '.'-.__.-.          ",
+    "                 ''-...-'          "
+};
+
+const std::string ClapTrap::cat2[] = {
+    "                  ,",
+    "                 \\)\\_",
+    "                /    '. .---._",
+    "              =P ^     `      '.",
+    "               `--.       /     \\",
+    "               .-'(       \\      |",
+    "              (.-'   )-..__>   , ;",
+    "              (_.--``    (__.-/ /",
+    "                      .-.__.-'.'",
+    "                       '-...-'"
+};
+
+const std::string ClapTrap::cat3[] = {
+    "             ,",
+    "            \\)\\_",
+    "           /    '. .---._",
+    "         =P ^     `      '.",
+    "          `--.       /     \\",
+    "          .-'(       \\      |",
+    "         (.-'   )-..__>   , ;",
+    "         (_.--``    (__.-/ /",
+    "                 .-.__.-'.'",
+    "                  '-...-'"
+};

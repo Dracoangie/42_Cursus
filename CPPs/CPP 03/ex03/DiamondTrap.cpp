@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/13 13:50:41 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/17 10:36:30 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &cpy)
 void DiamondTrap::whoAmI(void)
 {
     std::ostringstream oss;
-	oss << PINK << this->name << " is confused! ,it doesn't know its own name. " << std::endl
-		<< "is the ClapTrap name: " << FragTrap::name << std::endl
-		<< "or the DiamondTrap name: " << ScavTrap::name << std::endl << RESET;
+	oss << PINK << this->name << " is confused! it doesn't know its own name. " << std::endl
+		<< "is the ClapTrap name: " << ClapTrap::name << std::endl
+		<< "or the DiamondTrap name: " << this->name << std::endl << RESET;
 	ClapTrap::typeWrite(oss.str());
 }	
 

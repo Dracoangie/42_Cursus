@@ -3,73 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/13 14:38:09 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/17 10:28:06 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 #include <iomanip>
 
-const std::string cat1[] = {
-	"                         ,         ",
-	"                       _/((        ",
-	"              _.---. .'   `\\      ",
-	"            .'      `     ^ T=     ",
-	"           /     \\       .--'     ",
-	"          |      /       )'-.      ",
-	"          ; ,   <__..-(   '-.)     ",
-	"          \\ \\-.__)    ``--._)    ",
-	"           '.'-.__.-.              ",
-	"             ''-...-'              "
-};
-
-const std::string cat4[] = {
-	"                             ,     ",
-	"                           _/((    ",
-	"                  _.---. .'   `\\  ",
-	"                .'      `     ^ T= ",
-	"               /     \\       .--' ",
-	"              |      /       )'-.  ",
-	"              ; ,   <__..-(   '-.) ",
-	"              \\ \\-.__)    ``--._)",
-	"               '.'-.__.-.          ",
-	"                 ''-...-'          "
-};
-
-const std::string cat2[] = {
-	"                  ,",
-	"                 \\)\\_",
-	"                /    '. .---._",
-	"              =P ^     `      '.",
-	"               `--.       /     \\",
-	"               .-'(       \\      |",
-	"              (.-'   )-..__>   , ;",
-	"              (_.--``    (__.-/ /",
-	"                      .-.__.-'.'",
-	"                       '-...-'"
-};
-
-const std::string cat3[] = {
-	"             ,",
-	"            \\)\\_",
-	"           /    '. .---._",
-	"         =P ^     `      '.",
-	"          `--.       /     \\",
-	"          .-'(       \\      |",
-	"         (.-'   )-..__>   , ;",
-	"         (_.--``    (__.-/ /",
-	"                 .-.__.-'.'",
-	"                  '-...-'"
-};
-
 void printCatsFacingEachOther (std::string color1, std::string color2, int attack)
 {
-	for (size_t i = 0; i < (sizeof(cat1) / sizeof(cat1[0])); ++i) {
-		std::cout << color1 << std::left  << std::setw(40) << ((attack == 1) ? cat4[i]: cat1[i]) << std::setw(5) << RESET 
-				<< color2 << std::right << ((attack == 2) ? cat3[i]: cat2[i]) << RESET << std::endl;
+	for (size_t i = 0; i < (sizeof(ClapTrap::cat1) / sizeof(ClapTrap::cat1[0])); ++i) {
+		std::cout << color1 << std::left  << std::setw(40) << ((attack == 1) ? ClapTrap::cat4[i]: ClapTrap::cat1[i]) << std::setw(5) << RESET 
+				<< color2 << std::right << ((attack == 2) ? ClapTrap::cat3[i]: ClapTrap::cat2[i]) << RESET << std::endl;
 	}
 }
 
@@ -82,7 +30,7 @@ void printCat(size_t lines)
 		for (size_t i = 0; i < lines - j -1; ++i)
 			std::cout << std::endl;
 		for (size_t i = 0; i < j + 1; ++i)
-			std::cout << BLUE << cat1[i] << RESET << std::endl;
+			std::cout << BLUE << ClapTrap::cat1[i] << RESET << std::endl;
 	}
 	std::cout << GREEN;
 	ClapTrap::typeWrite("First DiamondTrap appeared!");
@@ -93,10 +41,10 @@ void printCat(size_t lines)
 		usleep(80000);
 		std::cout << "\033[2J\033[1;1H";
 		for (size_t i = 0; i < lines - j-1; ++i)
-			std::cout << BLUE << cat1[i] << RESET << std::endl;
+			std::cout << BLUE << ClapTrap::cat1[i] << RESET << std::endl;
 		for (size_t i = 0; i < j + 1; ++i)
-			std::cout << BLUE << std::left << std::setw(40) << cat1[(lines - j -1) + i] 
-			<< std::right << cat2[i] << RESET << std::endl;
+			std::cout << BLUE << std::left << std::setw(40) << ClapTrap::cat1[(lines - j -1) + i] 
+			<< std::right << ClapTrap::cat2[i] << RESET << std::endl;
 	}
 	std::cout << GREEN;
 	ClapTrap::typeWrite("Second DiamondTrap appeared!");
@@ -172,7 +120,7 @@ int catBattle( void )
 	DiamondTrap Simba("Simba");
 	DiamondTrap Nala("Nala");
 	
-	printCat((sizeof(cat1) / sizeof(cat1[0])));
+	printCat((sizeof(ClapTrap::cat1) / sizeof(ClapTrap::cat1[0])));
 	sleep(1);
 
 	catAction(&Simba, &Nala);
