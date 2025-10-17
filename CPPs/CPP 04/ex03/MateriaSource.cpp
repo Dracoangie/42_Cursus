@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:19:54 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/14 13:32:19 by angnavar         ###   ########.fr       */
+/*   Updated: 2025/10/17 11:11:24 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ MateriaSource::MateriaSource(MateriaSource const & other)
 		materia[i] = 0;
     for (int i = 0; i < 4; ++i)
 	{
-        if (other.materia[i]) materia[i] = other.materia[i]->clone();
+        if (other.materia[i])
+			materia[i] = other.materia[i]->clone();
     }
 }
 
