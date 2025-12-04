@@ -6,11 +6,11 @@
 #    By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2025/12/04 13:47:19 by angnavar         ###   ########.fr        #
+#    Updated: 2025/12/04 13:47:23 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex01
 
 # Archivos fuente y objetos
 SRC = main.cpp Bureaucrat.cpp
