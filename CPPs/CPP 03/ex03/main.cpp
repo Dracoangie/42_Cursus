@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:31:55 by angnavar          #+#    #+#             */
-/*   Updated: 2025/10/17 10:28:06 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/04/20 12:12:03 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,11 @@ int catBattle( void )
 	Nala.highFivesGuys();
 
 	std::cout << "\033[2J\033[1;1H";
-	printCatsFacingEachOther(CYAN, CYAN, 0);
+	printCatsFacingEachOther(PINK, BLUE, 0);
 	Simba.whoAmI();
+	usleep(200000);
+	std::cout << "\033[2J\033[1;1H";
+	printCatsFacingEachOther(PINK, PINK, 0);
 	Nala.whoAmI();
 
 	endBattle();
