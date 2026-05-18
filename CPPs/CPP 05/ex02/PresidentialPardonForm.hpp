@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 21:18:52 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 00:13:44 by angnavar         ###   ########.fr       */
+/*   Created: 2026/05/19 00:34:05 by angnavar          #+#    #+#             */
+/*   Updated: 2026/05/19 01:08:17 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Form.hpp"
 
-class Form;
-
-class Bureaucrat
+class PresidentialPardonForm : public AForm
 {
-	std::string _name;
-	int _grade;
-	
+	std::string _target;
 public:
-	Bureaucrat(std::string name, int grade);
-	~Bureaucrat();
-	Bureaucrat& operator=(Bureaucrat cpy);
-	std::string getName();
-	int getGrade();
-	void increment();
-	void decrement();
-	void signForm(Form &form);
-	
-	friend std::ostream &operator<<( std::ostream &output, Bureaucrat &print );
+	PresidentialPardonForm(std::string target);
+	~PresidentialPardonForm();
+	PresidentialPardonForm& operator=(PresidentialPardonForm const &cpy);
+	void execute(const Bureaucrat & executor) const;
 };

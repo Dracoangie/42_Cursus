@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:18:52 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 00:16:18 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/19 01:16:52 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Bureaucrat.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-class Form
+# include <iostream>
+
+class AForm;
+
+class Bureaucrat
 {
 	std::string _name;
-	int _gradeToSign;
-	int _gradeToExecute;
-	bool _signed;
-	
+	int _grade;
+
 public:
-	Form(std::string name, int gradeToSign, int gradeToExecute);
-	~Form();
-	Form& operator=(Form cpy);
-	int getGradeToSign();
-	int getGradeToExecute();
-	bool getSigned();
+	Bureaucrat(std::string name, int grade);
+	~Bureaucrat();
+	Bureaucrat& operator=(Bureaucrat const &cpy);
+
+	std::string getName() const;
+	int getGrade() const;
+
 	void increment();
 	void decrement();
-	static void beSigned(Bureaucrat &b, Form &form);
-	std::string getName();
-	
-	friend std::ostream &operator<<( std::ostream &output, Form &print );
+	void signForm(AForm &form);
+	void executeForm(AForm const &form) const;
+
+	friend std::ostream &operator<<(std::ostream &output, Bureaucrat &print);
 };
+
+#endif

@@ -6,13 +6,14 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:31:45 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 00:19:55 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/19 01:22:08 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
 {
 
 	this->_name = name;
@@ -28,12 +29,12 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 		this->_gradeToExecute = gradeToExecute;
 	this->_signed = false;
 }
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
-Form& Form::operator=(Form cpy)
+AForm& AForm::operator=(AForm const &cpy)
 {
 	_name = cpy.getName();
 	_gradeToSign = cpy.getGradeToSign();
@@ -42,39 +43,24 @@ Form& Form::operator=(Form cpy)
 	return *this;
 }
 
-std::string Form::getName()
+std::string AForm::getName() const
 {
 	return _name;
 }
-int Form::getGradeToSign()
+int AForm::getGradeToSign() const
 {
 	return _gradeToSign;
 }
-int Form::getGradeToExecute()
+int AForm::getGradeToExecute() const
 {
 	return _gradeToExecute;
 }
-bool Form::getSigned()
+bool AForm::getSigned() const
 {
 	return _signed;
 }
-void Form::increment()
-{
-	--_gradeToSign;
-	if(_gradeToSign < 1){
-		this->_gradeToSign = 1;
-		throw std::runtime_error("Form::GradeTooHighException");}
-}
-void Form::decrement()
-{
-	++_gradeToSign;
-	if(_gradeToSign > 150){
-		this->_gradeToSign = 150;
-		throw std::runtime_error("Form::GradeTooLowException");
-	}
-}
 
-void Form::beSigned(Bureaucrat &b, Form &form)
+void AForm::beSigned(Bureaucrat &b, AForm &form)
 {
 	if(b.getGrade() > form.getGradeToSign())
 		throw std::runtime_error("Form::GradeTooLowException");
@@ -83,7 +69,7 @@ void Form::beSigned(Bureaucrat &b, Form &form)
 }
 
 
-std::ostream &operator<<(std::ostream &output, Form &form)
+std::ostream &operator<<(std::ostream &output, AForm const &form)
 {
 	output << "Form " << form.getName()
 		<< " | signed: " << (form.getSigned() ? "true" : "false")
