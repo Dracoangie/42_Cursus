@@ -5,23 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/19 01:12:49 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:52:12 by angnavar         ###   ########.fr       */
+/*   Created: 2025/10/13 20:41:40 by angnavar          #+#    #+#             */
+/*   Updated: 2026/05/19 11:38:56 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Intern.hpp"
-
+#include "ScalarConverter.hpp"
 #include <iostream>
 
-int main()
+int main(int argc, char **argv)
 {
-	Intern someRandomIntern;
-	AForm* rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	Bureaucrat boss("Boss", 1);
-	rrf->beSigned(boss, *rrf);
-	rrf->execute(boss);		
-	delete rrf;
+    if (argc != 2)
+    {
+        std::cerr << "Usage: ./converter <literal>" << std::endl;
+        return (1);
+    }
+
+    ScalarConverter::convert(argv[1]);
+    return (0);
 }
