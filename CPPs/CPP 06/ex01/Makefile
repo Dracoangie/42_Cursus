@@ -6,14 +6,14 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2026/05/19 12:01:37 by angnavar         ###   ########.fr        #
+#    Updated: 2026/05/19 12:28:45 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = ex01
 
 # Archivos fuente y objetos
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Serialization.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -28,10 +28,10 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 define banner
 	@echo "\033[0;34m"
-	@echo " _____        ___ ___ "
-	@echo "|   __|_ _   |   |   |"
-	@echo "|   __|_'_|  | | | | |"
-	@echo "|_____|_,_|  |___|___|"  
+	@echo " _____        ___ ___   "
+	@echo "|   __|_ _   |   |_  |  "
+	@echo "|   __|_'_|  | | |_| |_ "
+	@echo "|_____|_,_|  |___|_____|"
 	@echo "\033[0m"
 endef
 
