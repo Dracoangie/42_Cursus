@@ -6,14 +6,14 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2026/05/20 11:26:16 by angnavar         ###   ########.fr        #
+#    Updated: 2026/05/24 20:33:31 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = RPN
 
 # Archivos fuente y objetos
-SRC = main.cpp Span.cpp
+SRC = main.cpp RPN.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))

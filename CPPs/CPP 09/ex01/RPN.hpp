@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 13:25:04 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/20 11:30:45 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 21:11:10 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-#define SPAN_HPP
+#ifndef RPN_HPP
+#define RPN_HPP
 
-#include <algorithm>
-#include <stdexcept>
-#include <vector>
-class Span
-{
-	std::vector<int> numbers;
-	unsigned int maxSize;
-public:
-	Span(unsigned int n);
-	Span(const Span& other);
-	Span& operator=(const Span& other);
-	~Span();
-	
-	void addNumber(int num);
-	int shortestSpan() const;
-	int longestSpan() const;
+#include <stack>
+#include <list>
+#include <string>
+#include <iostream>
+#include <sstream>
 
-	template <typename Iter>
-	void addRange(Iter begin, Iter end)
-	{
-		if (numbers.size() + std::distance(begin, end) > maxSize)
-			throw std::runtime_error("Span is full");
-		numbers.insert(numbers.end(), begin, end);
-	}
+
+class Rpn {
+
+    private:
+        std::stack<long, std::list<long> > _stack;
+
+    public:
+        Rpn();
+        Rpn(Rpn const &copy);
+        Rpn &operator=(Rpn const &copy);
+        ~Rpn();
+
+        void calculation(std::string const &expression);
 };
-
 
 #endif
