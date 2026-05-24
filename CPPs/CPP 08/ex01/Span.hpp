@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 13:25:04 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/20 11:30:45 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:35:42 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Span
 {
 	std::vector<int> numbers;
 	unsigned int maxSize;
+	Span();
 public:
 	Span(unsigned int n);
 	Span(const Span& other);

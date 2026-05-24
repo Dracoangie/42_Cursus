@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 11:33:47 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/20 12:00:17 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:36:48 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 		std::stack<T>::operator=(other);
         return *this;
 	}
+	~MutantStack(){}
 
 	typedef typename std::stack<T>::container_type::iterator iterator;
 	typedef typename std::stack<T>::container_type::const_iterator const_iterator;
