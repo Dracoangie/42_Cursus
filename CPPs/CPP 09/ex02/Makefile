@@ -6,14 +6,14 @@
 #    By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/08 10:57:18 by angnavar          #+#    #+#              #
-#    Updated: 2026/05/20 11:33:20 by angnavar         ###   ########.fr        #
+#    Updated: 2026/05/24 23:04:29 by angnavar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex02
+NAME = PmergeMe
 
 # Archivos fuente y objetos
-SRC = main.cpp
+SRC = main.cpp PmergeMe.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(OBJ))
