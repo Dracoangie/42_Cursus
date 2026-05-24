@@ -6,13 +6,23 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 00:49:10 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:20:27 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:26:14 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation", 145, 137)
+{
+
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &cpy) : AForm("Shrubbery Creation", 145, 137)
+{
+	AForm::operator=(cpy);
+	_target = cpy._target;
+}
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation", 145, 137), _target(target)
 {
 

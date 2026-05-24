@@ -6,11 +6,13 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:31:45 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 00:19:55 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:19:01 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+Form::Form(){}
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 {
@@ -42,19 +44,23 @@ Form& Form::operator=(Form cpy)
 	return *this;
 }
 
+std::string Form::getName() const
+{
+	return _name;
+}
 std::string Form::getName()
 {
 	return _name;
 }
-int Form::getGradeToSign()
+int Form::getGradeToSign() const
 {
 	return _gradeToSign;
 }
-int Form::getGradeToExecute()
+int Form::getGradeToExecute() const
 {
 	return _gradeToExecute;
 }
-bool Form::getSigned()
+bool Form::getSigned() const
 {
 	return _signed;
 }
@@ -83,7 +89,7 @@ void Form::beSigned(Bureaucrat &b, Form &form)
 }
 
 
-std::ostream &operator<<(std::ostream &output, Form &form)
+std::ostream &operator<<(std::ostream &output, Form const &form)
 {
 	output << "Form " << form.getName()
 		<< " | signed: " << (form.getSigned() ? "true" : "false")

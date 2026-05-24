@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:18:52 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:19:13 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:20:57 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 
 	virtual void execute(Bureaucrat const &executor) const = 0;
 
-	friend std::ostream &operator<<(std::ostream &output, AForm const &print);
 };
+std::ostream &operator<<(std::ostream &output, AForm const &print);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 01:33:25 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:39:57 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:30:33 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Intern
 
 public:
 	Intern();
+	Intern(Intern const &cpy);
 	~Intern();
 	Intern& operator=(Intern const &cpy);
 	AForm* makeForm(std::string formName, std::string target);

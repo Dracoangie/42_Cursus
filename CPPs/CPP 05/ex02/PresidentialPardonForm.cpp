@@ -6,13 +6,23 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 00:37:42 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:20:22 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:24:05 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential Pardon", 25, 5)
+{
+
+}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &cpy) : AForm("Presidential Pardon", 25, 5)
+{
+	AForm::operator=(cpy);
+	_target = cpy._target;
+}
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential Pardon", 25, 5), _target(target)
 {
 

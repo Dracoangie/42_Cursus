@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:18:52 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:16:52 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:19:49 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ public:
 	void signForm(AForm &form);
 	void executeForm(AForm const &form) const;
 
-	friend std::ostream &operator<<(std::ostream &output, Bureaucrat &print);
 };
+
+std::ostream &operator<<(std::ostream &output, Bureaucrat const &print);
 
 #endif

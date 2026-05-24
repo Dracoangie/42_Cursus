@@ -6,11 +6,15 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:31:45 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 00:16:01 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:18:53 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+Bureaucrat::Bureaucrat()
+{
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
@@ -36,11 +40,11 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat cpy)
 	return *this;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return _name;
 }
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 	return _grade;
 }
@@ -72,7 +76,7 @@ void Bureaucrat::signForm(Form &form)
 }
 
 
-std::ostream &operator<<( std::ostream &output, Bureaucrat &print )
+std::ostream &operator<<( std::ostream &output, Bureaucrat const &print )
 { 
 	output << print.getName() << ", bureaucrat grade " << print.getGrade() << "." << std::endl;
 	return output;            

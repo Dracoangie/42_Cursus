@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 01:33:45 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:40:46 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:31:13 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 Intern::Intern()
 {
 
+}
+
+Intern::Intern(Intern const &cpy)
+{
+	(void)cpy;
 }
 
 Intern::~Intern()

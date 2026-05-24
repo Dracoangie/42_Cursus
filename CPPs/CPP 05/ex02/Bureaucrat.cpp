@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:31:45 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:19:16 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:20:36 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ void Bureaucrat::executeForm(AForm const &form) const
 	}
 }
 
-
-std::ostream &operator<<( std::ostream &output, Bureaucrat &print )
+std::ostream &operator<<( std::ostream &output, Bureaucrat const &print )
 { 
 	output << print.getName() << ", bureaucrat grade " << print.getGrade() << "." << std::endl;
 	return output;            
