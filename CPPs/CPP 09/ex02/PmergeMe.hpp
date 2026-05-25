@@ -6,7 +6,7 @@
 /*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/20 11:33:47 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/24 23:03:50 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/25 15:19:25 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 #include <iterator>
 #include <vector>
 #include <list>
+#include <deque>
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
 
 class PmergeMe
 {
 	std::vector<int>	vec;
-	std::list<int>		list;
+	std::deque<int>		deq;
 
 public:
 	PmergeMe();
@@ -29,8 +34,11 @@ public:
 	PmergeMe &operator=(const PmergeMe& other);
 	~PmergeMe();
 
-	void vecOrder(std::vector<int>	other);
-	void lsitOrder(std::list<int>	other);
+	void sortVec(std::vector<int>& 	other);
+	void sortDeque(std::deque<int>& 	other);
+
+	std::vector<int> generateJacobsthal(int n); 
+	std::vector<int> getInsertionOrder(int n);
 };
 
 #endif
