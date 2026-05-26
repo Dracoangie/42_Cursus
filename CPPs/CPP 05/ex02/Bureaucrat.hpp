@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 21:18:52 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/24 23:19:49 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 10:57:19 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Bureaucrat
 	std::string _name;
 	int _grade;
 
+	Bureaucrat();
 public:
 	Bureaucrat(std::string name, int grade);
 	~Bureaucrat();

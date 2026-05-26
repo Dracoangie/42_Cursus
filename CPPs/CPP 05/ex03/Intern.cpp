@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 01:33:45 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/24 23:31:13 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:21:04 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,19 @@ Intern& Intern::operator=(Intern const &cpy)
 
 AForm* Intern::createShrubberyCreationForm(std::string target)
 {
+	std::cout << "create Shrubbery Creation Form " << std::endl; 
 	return new ShrubberyCreationForm(target);
 }
 
 AForm* Intern::createRobotomyRequestForm(std::string target)
 {
+	std::cout << "create Robotomy Request Form " << std::endl; 
 	return new RobotomyRequestForm(target);
 }
 
 AForm* Intern::createPresidentialPardonForm(std::string target)
 {
+	std::cout << "create Presidential Pardon Form " << std::endl; 
 	return new PresidentialPardonForm(target);
 }
 

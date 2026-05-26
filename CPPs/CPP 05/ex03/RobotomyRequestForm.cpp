@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 00:53:55 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/24 23:25:26 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:17:37 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &c
 void RobotomyRequestForm::execute(const Bureaucrat & executor) const
 {
 	if (!getSigned())
-		throw std::runtime_error("FormNotSignedException");
+		throw std::runtime_error("RobotomyRequestForm::NotSignedException");
 	else if (executor.getGrade() > getGradeToExecute())
-		throw std::runtime_error("GradeTooLowException");
+		throw std::runtime_error("RobotomyRequestForm::GradeTooLowException");
 	else
 	{
 		std::cout << "Bzzzz... Bzzzz... Bzzzz..." << std::endl;

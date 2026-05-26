@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 00:49:10 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/24 23:26:14 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:17:14 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 void ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 {
 	if (!getSigned())
-		throw std::runtime_error("FormNotSignedException");
+		throw std::runtime_error("ShrubberyCreationForm::NotSignedException");
 	else if (executor.getGrade() > getGradeToExecute())
-		throw std::runtime_error("GradeTooLowException");
+		throw std::runtime_error("ShrubberyCreationForm::GradeTooLowException");
 	else
 	{
 		std::ofstream file((_target + "_shrubbery").c_str());

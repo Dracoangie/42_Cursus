@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 01:12:49 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 01:17:53 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:14:08 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
 #include <iostream>
+#include <ctime>
 
 int main()
 {
+    std::srand(std::time(NULL));
+	
 	std::cout << "\n===== SHRUBBERY TEST =====\n" << std::endl;
 
 	try

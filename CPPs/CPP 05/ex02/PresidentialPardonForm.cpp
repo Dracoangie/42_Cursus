@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 00:37:42 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/24 23:24:05 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:16:53 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 void PresidentialPardonForm::execute(const Bureaucrat & executor) const
 {
 	if (!getSigned())
-		throw std::runtime_error("FormNotSignedException");
+		throw std::runtime_error("PresidentialPardonForm::NotSignedException");
 	else if (executor.getGrade() > getGradeToExecute())
-		throw std::runtime_error("GradeTooLowException");
+		throw std::runtime_error("PresidentialPardonForm::GradeTooLowException");
 	else
 		std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
