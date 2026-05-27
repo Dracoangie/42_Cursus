@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 14:00:17 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 14:55:32 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/27 13:02:48 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ public:
 		return *this;
 	}
 	~Array() { delete[] _array; }
-	
-	unsigned int size() const { return _size; }
 
 	T& operator[](unsigned int index)
 	{
@@ -60,6 +58,7 @@ public:
 		return _array[index];
 	}
 
+	unsigned int size() const { return _size; }
 };
 
 #endif

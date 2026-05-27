@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 14:26:01 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 15:13:02 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/27 13:10:32 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 5
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -25,14 +25,16 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+	Array<int> tmp = numbers;
+	Array<int> test(tmp);
 
+	std::cout << "Equal nums" << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
     {
+		std::cout << mirror[i] << std::endl;
+		std::cout << numbers[i] << std::endl;
+		std::cout << tmp[i] << std::endl;
+		std::cout << test[i] << std::endl;
         if (mirror[i] != numbers[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
@@ -45,7 +47,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Exception: " << e.what() << '\n';
     }
     try
     {
@@ -53,13 +55,15 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Exception: " << e.what() << '\n';
     }
 
+	std::cout << "random nums" << std::endl;
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
+		std::cout << numbers[i] << std::endl;
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }
