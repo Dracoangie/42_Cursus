@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angnavar <angnavar@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: angnavar <angnavar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:41:40 by angnavar          #+#    #+#             */
-/*   Updated: 2026/05/19 13:11:58 by angnavar         ###   ########.fr       */
+/*   Updated: 2026/05/26 17:08:54 by angnavar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include <iostream>
 #include "Base.hpp"
+#include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 Base * generate(void)
 {
@@ -46,16 +47,29 @@ void identify(Base* p)
 		std::cout << "Unknown type" << std::endl;
 }
 
-void identify(Base& p)
+void identify(Base &p)
 {
-	if (dynamic_cast<A*>(&p))
+	try
+	{
+		A &a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "Identified A" << std::endl;
-	else if (dynamic_cast<B*>(&p))
+	}
+	catch (std::exception &e) {}
+	try
+	{
+		B &b = dynamic_cast<B&>(p);
+		(void)b;
 		std::cout << "Identified B" << std::endl;
-	else if (dynamic_cast<C*>(&p))
+	}
+	catch (std::exception &e) {}
+	try
+	{
+		C &c = dynamic_cast<C&>(p);
+		(void)c;
 		std::cout << "Identified C" << std::endl;
-	else
-		std::cout << "Unknown type" << std::endl;
+	}
+	catch (std::exception &e) {}
 }
 
 int main()
